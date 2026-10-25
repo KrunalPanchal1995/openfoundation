@@ -41,14 +41,14 @@
   <div id="readout"></div>
   <div id="challenge" hidden></div>
   <div id="status" class="sr" aria-live="polite"></div>
-  <p class="note">This is a simplified educational model. It is not a validated design tool and must not be used for real structures, electrical installations, vehicles, industrial processes or medical decisions.</p>
+  <p class="note">Soil presets use typical teaching values, not for design. This is a simplified educational model. It is not a validated design tool and must not be used for real structures, electrical installations, vehicles, industrial processes or medical decisions.</p>
   <p class="sub"><a href="https://github.com/KrunalPanchal1995/openfoundation">Back to the repository</a></p>
 </main>
 <script>
 "use strict";
 const PARAMS = [{"id": "P", "label": "Column load P", "min": 50, "max": 1000, "step": 10, "value": 300, "unit": "kN"}, {"id": "B", "label": "Footing side B", "min": 0.5, "max": 3.5, "step": 0.1, "value": 1.2, "unit": "m"}, {"id": "qa", "label": "Soil allowable pressure", "min": 25, "max": 400, "step": 5, "value": 100, "unit": "kPa"}];
 const GRAPHS = [{"id": "section", "label": "Footing picture", "diagram": true}, {"id": "curve", "label": "Pressure versus width"}];
-const PRESETS = [{"label": "Tiny footing", "values": {"P": 300, "B": 0.5, "qa": 100}}, {"label": "Soft clay, 2 m", "values": {"P": 300, "B": 2.0, "qa": 75}}, {"label": "Dense sand", "values": {"P": 300, "B": 1.2, "qa": 300}}];
+const PRESETS = [{"label": "Tiny footing", "values": {"P": 300, "B": 0.5, "qa": 100}}, {"label": "Soft clay", "values": {"P": 300, "B": 2.0, "qa": 75}}, {"label": "Firm clay", "values": {"P": 300, "B": 1.5, "qa": 150}}, {"label": "Dense sand", "values": {"P": 300, "B": 1.2, "qa": 300}}];
 const CHALLENGE = "Carry a column of at least 600 kN on soil of at most 150 kPa, with a footing no wider than 2.1 m, and keep the soil safe.";
 const CHALLENGE_SOLUTION = {"P": 600, "B": 2.1, "qa": 150};
 const challengeTest = CHALLENGE ? (p) => (p.P >= 600 && p.qa <= 150 && p.B <= 2.1 && p.P / (p.B * p.B) <= p.qa) : null;
